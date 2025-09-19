@@ -1,0 +1,9 @@
+debug: true
+app:
+  host: localhost
+  port: 8080
+  timeout: 2s
+weather:
+  grpc: localhost:2000
+auth:
+  grpc: localhost:3000

@@ -1,0 +1,50 @@
+version: '3'
+
+services:
+  auth:
+    build:
+      context: ./auth  
+    depends_on:
+      - db  
+    networks:
+      - weather-network  
+  
+  gateway:
+    build:
+      context: ./gateway  
+    ports:
+      - "8080:8080"  
+    depends_on:
+      - db  
+    networks:
+      - weather-network  
+  
+  weather:
+    build:
+      context: ./weather   
+    depends_on:
+      - db  
+    networks:
+      - weather-network  
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "3000:3000"  
+    depends_on:
+      - db  
+      - gateway
+      - auth
+      - weather
+    networks:
+      - weather-network 
+  db:
+    image: mongo
+    environment:
+      MONGO_INITDB_DATABASE: user  
+    networks:
+      - weather-network  
+
+networks:
+  weather-network:  
+    driver: bridge

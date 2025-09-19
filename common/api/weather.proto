@@ -1,0 +1,28 @@
+syntax ="proto3";
+option go_package = "github.com/alazarbeyeneazu/commons/api";
+package api;
+
+message WeatherData {
+    string datetime = 1;
+    float tempmin = 2;
+    float tempmax = 3;
+    float humidity = 4;
+    float precip = 5;
+    float snow = 6;
+    float snowdepth = 7;
+    float windspeed = 8;
+    float temp =9;
+  }
+message Weather {
+     WeatherData day =1;
+     repeated WeatherData hourly=2;
+}
+message WeatherRequest {
+    string location =1;
+    string datetime=2;
+}
+
+service WeatherService {
+    rpc GetWeather(WeatherRequest)returns(Weather);
+}
+

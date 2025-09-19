@@ -1,0 +1,6 @@
+debug: true
+database:
+  url: mongodb://localhost:27017
+grpcAddr: localhost:2000
+visualcrossing: 
+  base_url: https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/%s/%s?key=MAF6M4LQ43NCG7GH995NN57BV

@@ -1,0 +1,24 @@
+syntax="proto3";
+option go_package = "github.com/alazarbeyeneazu/commons/api";
+package api;
+
+message LoginRequest {
+    string email =1;
+    string password =2;
+}
+message RegisterRequest {
+    string firstName =1;
+    string lastName =2;
+    string country =3;
+    string city =4;
+    string email=5;
+    string password=6;
+}
+message LoginResponse {
+    string token =1;
+}
+service AuthService {
+    rpc RegisterUser(RegisterRequest)returns(LoginResponse);
+    rpc LoginUser(LoginRequest)returns(LoginResponse);
+    rpc ValidateToken(LoginResponse)returns(RegisterRequest);
+}

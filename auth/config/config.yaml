@@ -1,0 +1,9 @@
+debug: true
+database:
+  url: mongodb://localhost:27017/user?retryWrites=true&w=majority
+  db_name: user
+grpcAddr: localhost:3000
+visualcrossing: 
+  base_url: https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/%s/%s?key=5RLSEX5YA2WR7P33RZGHF7QQ5
+auth:
+  jwtsecret: jwttokensecretshouldbechanged
